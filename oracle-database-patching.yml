@@ -1,0 +1,25 @@
+---
+- name: Shutdown database safely
+  hosts: db
+  become: true
+  tasks:
+    - name: Shutdown database
+      ansible.builtin.command: /opt/oracle/bin/dbshut $ORACLE_HOME
+      become_user: oracle
+
+- name: Update operating system
+  hosts: db
+  become: true
+  tasks:
+    - name: Update operating system
+      ansible.builtin.package:
+        name: "*"
+        state: latest
+
+- name: Start database
+  hosts: db
+  become: true
+  tasks:
+    - name: Start database
+      ansible.builtin.command: /opt/oracle/bin/dbstart $ORACLE_HOME
+      become_user: oracle

@@ -1,0 +1,7 @@
+---
+- name: This is a sample playbook to patch a windows server
+  hosts: windows
+  tasks:
+    - name: Patch Windows Server
+      ansible.windows.win_updates:
+        state: installed
