@@ -1,10 +1,6 @@
 schemaVersion: 2.2.2
 metadata:
   name: ansible-general
-projects:
-  - name: ansible-general
-    zip:
-      location: http://devspaces-dashboard.openshift-devspaces.svc:8080/dashboard/api/airgap-sample/project/download?id=ansible
 components:
   - name: tooling-container
     container:
